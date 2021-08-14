@@ -178,7 +178,14 @@ while playInput == "y":
         # If their guessed letter was not in the word, print comment and add 1 to tries
         else:
             tries += 1
-            print("\nSorry. That letter isn't in the word. You have",(7-tries),"tries left.")
+
+            # if user has 1 try left, it will print 1 try instead of 1 tries
+            if (7-tries) == 1:
+                print("Sorry. That letter isn't in the word. You have 1 try left.")
+            else:
+                print("\nSorry. That letter isn't in the word. You have",(7-tries),"tries left.")
+
+            # prints diagram and adds letters to guessed letters and word completion
             print(diagrams[tries - 1])
             print(wordCompletion)
             guessedLetters.append(letterInput)
