@@ -70,7 +70,7 @@ guessedLetters = []
 wordCompletion = []
 
 # User input asking the user if they wish to play
-playInput = input("Welcome to Hangman! Do you wish to play? Y/N ").lower()
+playInput = input("Welcome to Hangman! Do you wish to play? Y ").lower()
 
 # While user has selected Y, the game will commence
 while playInput == "y":
@@ -83,8 +83,8 @@ while playInput == "y":
 
     # random number is selected which picks a word from the words list
     word = random.randint(1, len(words[categoryInput - 1]))     # Gives a random number within a category
-    word = words[categoryInput-1][word]                         # picks a word in the category
-    tries = 1
+    word = words[categoryInput-1][word-1]                        # picks a word in the category
+    tries = 0
     points = 0
     charIndex = -1
 
@@ -92,6 +92,7 @@ while playInput == "y":
     print("\nGreat. Your word has", len(word), "letters")
     wordCompletion = ["_"] * len(word)
     print(wordCompletion)
+    print(word)
 
     # Prompts user to guess their first letter
     letterInput = input("\nPlease guess your first letter: ").lower()
@@ -120,13 +121,13 @@ while playInput == "y":
     # If their guessed letter was not in the word, print comment and add 1 to tries
     else:
         tries += 1
-        print("Sorry. That letter isn't in the word. You have",(6-tries),"tries left.")
+        print("Sorry. That letter isn't in the word. You have",(7-tries),"tries left.")
         print(diagrams[tries-1])
         print(wordCompletion)
         guessedLetters.append(letterInput)
         print("\nYou have already guessed:",guessedLetters)
 
-    # while points do not equal the length of the random word AND tries are less than 6, game continues
+    # while points do not equal the length of the random word AND tries are less than 7, game continues
     while points != len(word) and tries < 7:
 
         # Prompts user to guess their next letter
@@ -137,7 +138,7 @@ while playInput == "y":
 
         # If their guessed letter is in the word print comment and add letter to guessed letters list
         elif letterInput in word:
-            print("That letter is in the word! You have",(6-tries),"tries left.")
+            print("That letter is in the word! You have",(7-tries),"tries left.")
             guessedLetters.append(letterInput)
 
             # goes through each letter in word, if letter is the same as one in char it will add it to the list in order
@@ -158,12 +159,13 @@ while playInput == "y":
             print(wordCompletion)
 
             # shows user a list of all the letters already guessed
-            print("\nYou have already guessed:", guessedLetters)
+            if points != len(word):
+                print("\nYou have already guessed:", guessedLetters)
 
         # If their guessed letter was not in the word, print comment and add 1 to tries
         else:
             tries += 1
-            print("\nSorry. That letter isn't in the word. You have",(6-tries),"tries left.")
+            print("\nSorry. That letter isn't in the word. You have",(7-tries),"tries left.")
             print(diagrams[tries - 1])
             print(wordCompletion)
             guessedLetters.append(letterInput)
