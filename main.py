@@ -92,7 +92,6 @@ while playInput == "y":
     print("\nGreat. Your word has", len(word), "letters")
     wordCompletion = ["_"] * len(word)
     print(wordCompletion)
-    print(word)
 
     # Prompts user to guess their first letter
     letterInput = input("\nPlease guess your first letter: ").lower()
@@ -107,7 +106,13 @@ while playInput == "y":
 
     # If their guessed letter is in the word print comment and add letter to guessed letters list
     elif letterInput in word:
-        print("You guessed it!")
+
+        # counts how many times a letter is in the word and prints
+        occurrence = word.count(letterInput)
+        if occurrence > 1:
+            print("You guessed it! There are",occurrence,"letter",letterInput+"'s in the word!")
+        else:
+            print("You guessed it! There is",occurrence,"letter",letterInput," int the word!")
         guessedLetters.append(letterInput)
 
         # goes through each letter in word, if letter is the same as one in char, it will add it to the list in order
@@ -158,7 +163,13 @@ while playInput == "y":
 
         # If their guessed letter is in the word print comment and add letter to guessed letters list
         elif letterInput in word:
-            print("That letter is in the word! You have",(7-tries),"tries left.")
+            occurrence = word.count(letterInput)
+            if occurrence > 1:
+                print("\nYou guessed it! There are", occurrence, "letter", letterInput + "'s in the word!")
+                print("You have",(7-tries),"tries left.")
+            else:
+                print("\nYou guessed it! There is", occurrence, "letter", letterInput, "in the word!")
+                print("You have", (7 - tries), "tries left.")
             guessedLetters.append(letterInput)
 
             # goes through each letter in word, if letter is the same as one in char it will add it to the list in order
