@@ -145,6 +145,13 @@ while playInput == "y":
         while not letterInput.isalpha():
             letterInput = input("\nSorry. That was an invalid input. Please guess your first letter: ").lower()
 
+        while letterInput in guessedLetters:
+            letterInput = input("\nYou have already guessed that letter, please try again: ").lower()
+
+            # while user input is not a letter, it will prompt user to try again
+            while not letterInput.isalpha():
+                    letterInput = input("\nSorry. That was an invalid input. Please guess your first letter: ").lower()
+
         # if user guesses the word, their points automatically become enough to win
         if letterInput == word:
             points = len(word)
@@ -209,4 +216,4 @@ while playInput == "y":
     playInput = input("Do you wish to play again? Y/N ").lower()
 
 # If user selects N, the game ends
-print("Goodbye.")
+print("Thanks for playing! Goodbye.")
