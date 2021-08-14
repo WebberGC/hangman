@@ -106,7 +106,7 @@ while playInput == "y":
         points = len(word)
 
     # If their guessed letter is in the word print comment and add letter to guessed letters list
-    if letterInput in word:
+    elif letterInput in word:
         print("You guessed it!")
         guessedLetters.append(letterInput)
 
