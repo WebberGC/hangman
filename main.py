@@ -83,7 +83,7 @@ while playInput == "y":
 
     # random number is selected which picks a word from the words list
     word = random.randint(1, len(words[categoryInput - 1]))     # Gives a random number within a category
-    word = words[categoryInput-1][word-1]                        # picks a word in the category
+    word = words[categoryInput-1][word-1]                       # picks a word in the category
     tries = 0
     points = 0
     charIndex = -1
@@ -97,8 +97,13 @@ while playInput == "y":
     # Prompts user to guess their first letter
     letterInput = input("\nPlease guess your first letter: ").lower()
 
+    # while user input is not a letter, it will prompt user to try again
     while not letterInput.isalpha():
         letterInput = input("\nSorry. That was an invalid input. Please guess your first letter: ").lower()
+
+    # if user guesses the word, their points automatically become enough to win
+    if letterInput == word:
+        points = len(word)
 
     # If their guessed letter is in the word print comment and add letter to guessed letters list
     if letterInput in word:
@@ -136,9 +141,11 @@ while playInput == "y":
         # Prompts user to guess their next letter
         letterInput = input("\nPlease guess your next letter: ").lower()
 
+        # while user input is not a letter, it will prompt user to try again
         while not letterInput.isalpha():
             letterInput = input("\nSorry. That was an invalid input. Please guess your first letter: ").lower()
 
+        # if user guesses the word, their points automatically become enough to win
         if letterInput == word:
             points = len(word)
 
