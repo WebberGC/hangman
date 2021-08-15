@@ -24,9 +24,9 @@ words = \
   "waxy", "wellspring", "wheezy", "whiskey", "whizzing", "whomever", "wimpy", "witchcraft", "wizard", "woozy",
   "wristwatch", "wyvern", "xylophone", "yachtsman", "yippee", "yoked", "youthful", "yummy", "zephyr", "zigzag",
   "zigzagging", "zilch", "zipper", "zodiac", "zombie"],
- ["brooklynninenine", "theoffice", "rickandmorty", "greysanatomy", "gameofthrones", "supernatural", "doctor who",
-  "gameofthrones", "friends", "breaking bad", "thegoodplace", "thewalkingdead", "newamsterdam", "thegooddoctor",
-  "westworld", "criminal minds", "thevampirediaries", "howimetyourmother", "thesimpsons", "futurama", "familyguy",
+ ["brooklynninenine", "theoffice", "rickandmorty", "greysanatomy", "gameofthrones", "supernatural", "doctorwho",
+  "gameofthrones", "friends", "breakingbad", "thegoodplace", "thewalkingdead", "newamsterdam", "thegooddoctor",
+  "westworld", "criminalminds", "thevampirediaries", "howimetyourmother", "thesimpsons", "futurama", "familyguy",
   "bones", "therookie", "wentworth", "dexter", "pokemon", "gossipgirl", "house", "houseofcards", "lost", "lucifer",
   "ncis", "prisonbreak", "scrubs", "sherlock", "suits", "thexfiles", "buffythevampireslayer", "seinfeld",
   "parksandrecreation", "americanhorrorstory", "modernfamily", "arresteddevelopment", "shameless", "offspring",
@@ -68,6 +68,10 @@ guessedLetters = []
 
 # What is printed out to user when they guess
 wordCompletion = []
+
+win = 0
+loss = 0
+game = 0
 
 # User input asking the user if they wish to play
 playInput = input("Welcome to Hangman! Do you wish to play? Y ").lower()
@@ -112,7 +116,7 @@ while playInput == "y":
         if occurrence > 1:
             print("You guessed it! There are",occurrence,"letter",letterInput+"'s in the word!")
         else:
-            print("You guessed it! There is",occurrence,"letter",letterInput," int the word!")
+            print("You guessed it! There is",occurrence,"letter",letterInput,"in the word!")
         guessedLetters.append(letterInput)
 
         # goes through each letter in word, if letter is the same as one in char, it will add it to the list in order
@@ -155,7 +159,7 @@ while playInput == "y":
 
             # while user input is not a letter, it will prompt user to try again
             while not letterInput.isalpha():
-                    letterInput = input("\nSorry. That was an invalid input. Please guess your first letter: ").lower()
+                letterInput = input("\nSorry. That was an invalid input. Please guess your first letter: ").lower()
 
         # if user guesses the word, their points automatically become enough to win
         if letterInput == word:
@@ -212,12 +216,18 @@ while playInput == "y":
     # if points equal length of word, player wins
     if points == len(word):
         print("\nCongratulations! You won!")
+        game += 1
+        win += 1
+        print("You have won",win,"games and lost",loss,"games. Your win percentage is:",str((win/game)*100)+"%")
 
     # if pints do not equal length of word, player loses
     else:
         print("\nSorry, you have run out of tries.")
         print(diagrams[tries - 1])
         print("\nThe word was: ",word)
+        game += 1
+        loss += 1
+        print("You have won", win, "games and lost", loss, "games. Your win percentage is:",str((win/game)*100)+"%")
 
     # resetting everything to 0
     guessedLetters = []
