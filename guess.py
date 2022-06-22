@@ -22,7 +22,7 @@ def displayGuessedLetters(guessedLetters):
 
 
 # Makes the guess
-def makeGuess(letterInput, word, points, guessedLetters, wordCompletion, guess, tries):
+def makeGuess(letterInput, word, points, guessedLetters, wordCompletion, tries):
     """This function takes the input, turns it into a guess and displays the appropriate outputs."""
     letterInput = check.checkLetterInput(letterInput)
 
