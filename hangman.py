@@ -5,9 +5,8 @@ import words
 
 def run():
 	"""This function runs the hangman game"""
-	# Initialises userInput, categoryInput and game stats
+	# Initialises userInput and game stats
 	userInput = ""
-	categoryInput = 0
 	gameStats = {"win": 0, "loss": 0, "game": 0}
 
 	# Welcome message
@@ -22,10 +21,16 @@ def run():
 		tries, points, charIndex = 0, 0, 0  # Initialises tries, points and charIndex as 0
 
 		# Checks the input for category selection
-		categoryInput = check.checkCategory(categoryInput)
+		categoryInput = check.checkCategory()
 
 		# Selects a word from the list of words
 		word = words.selectWord(categoryInput)
+
+		# Checks how many letters are in the word
+		count = 0
+		for letter in word:
+			if letter.isalpha():
+				count += 1
 
 		# Shows user the length of thr word
 		wordCompletion = words.showWordLength(wordCompletion, word)
@@ -39,7 +44,7 @@ def run():
 
 		# This is the main game loop. It will continue to run until the user has guessed all the letters in the word or
 		# has run out of tries.
-		while points < len(word) and tries < 7:
+		while points < count and tries < 7:
 			# Prompts user to guess their next letter
 			letterInput = input("Please guess your next letter: ").lower()
 			print()
@@ -49,7 +54,7 @@ def run():
 			points, tries = guess.makeGuess(letterInput, word, points, guessedLetters, wordCompletion, tries)
 
 		# Checks the condition of the end game and updates game stats
-		gameStats = check.checkEndCondition(points, word, gameStats, tries)
+		gameStats = check.checkEndCondition(points, word, gameStats, tries, count)
 
 		# Asks if the player wants to play again
 		userInput = input("Do you wish to play again? Y/N ").lower()

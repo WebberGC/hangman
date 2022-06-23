@@ -9,7 +9,7 @@ class Check(unittest.TestCase):
 		points = 5
 		gameStats = {"win": 0, "loss": 0, "game": 0}
 		tries = 1
-		gameStats = check.checkEndCondition(points, word, gameStats, tries)
+		gameStats = check.checkEndCondition(points, word, gameStats, tries, len(word))
 		self.assertEqual(gameStats["win"], 1)
 		self.assertEqual(gameStats["loss"], 0)
 		self.assertEqual(gameStats["game"], 1)
@@ -19,7 +19,8 @@ class Check(unittest.TestCase):
 		points = 4
 		gameStats = {"win": 0, "loss": 0, "game": 0}
 		tries = 7
-		gameStats = check.checkEndCondition(points, word, gameStats, tries)
+
+		gameStats = check.checkEndCondition(points, word, gameStats, tries, len(word))
 		self.assertEqual(gameStats["win"], 0)
 		self.assertEqual(gameStats["loss"], 1)
 		self.assertEqual(gameStats["game"], 1)

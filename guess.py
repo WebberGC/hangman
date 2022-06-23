@@ -5,12 +5,13 @@ import words
 
 def countOccurrences(word, letterInput, guessedLetters, tries, wordCompletion):
     """This function counts the number of times a letter is in the word and prints it."""
-    occurrence = word.count(letterInput)
-    if occurrence > 1:
-        print("You guessed it! There are", occurrence, "letter", letterInput + "'s in the word!")
-    else:
-        print("You guessed it! There is", occurrence, "letter", letterInput, "in the word!")
-    guessedLetters.append(letterInput)
+    if not check.checkGuessedLetter(letterInput, guessedLetters):
+        occurrence = word.count(letterInput)
+        if occurrence > 1:
+            print("You guessed it! There are", occurrence, "letter", letterInput + "'s in the word!")
+        else:
+            print("You guessed it! There is", occurrence, "letter", letterInput, "in the word!")
+        guessedLetters.append(letterInput)
     diagrams.displayDiagram(tries)
     words.showWord(wordCompletion)
     print()
@@ -34,7 +35,7 @@ def makeGuess(letterInput, word, points, guessedLetters, wordCompletion, tries):
     elif letterInput in word:
 
         # goes through each letter in word, if letter is the same as one in word, it will add it to the list in order
-        points += words.charInWord(letterInput, word, wordCompletion)
+        points += words.charInWord(letterInput, word, wordCompletion, guessedLetters)
 
         # counts how many times a letter is in the word and prints
         countOccurrences(word, letterInput, guessedLetters, tries, wordCompletion)
@@ -45,15 +46,16 @@ def makeGuess(letterInput, word, points, guessedLetters, wordCompletion, tries):
     else:
         # Updates tries and displays the appropriate diagram
         tries += 1
-        diagrams.displayDiagram(tries)
+        if (7 - tries) != 0:
+            diagrams.displayDiagram(tries)
 
-        # Shows the word to the screen
-        words.showWord(wordCompletion)
-        print()
+            # Shows the word to the screen
+            words.showWord(wordCompletion)
+            print()
 
-        print("\nSorry. That letter isn't in the word. You have", (7 - tries), "tries left.")
-        guessedLetters.append(letterInput)
-        displayGuessedLetters(guessedLetters)
+            print("\nSorry. That letter isn't in the word. You have", (7 - tries), "tries left.")
+            guessedLetters.append(letterInput)
+            displayGuessedLetters(guessedLetters)
 
     return points, tries
 

@@ -27,8 +27,15 @@ def checkLetterInput(userInput):
     return userInput
 
 
-def checkCategory(categoryInput):
+def checkGuessedLetter(userInput, guessedLetters):
+    if userInput in guessedLetters:
+        print("Sorry. You have already guessed that letter.")
+        return True
+
+
+def checkCategory():
     """This function checks the category to see if it is valid."""
+    categoryInput = 99999
     while categoryInput < 1 or categoryInput > len(words.words):
         try:
             # prompts user with categories and asks them to pick one
@@ -36,6 +43,7 @@ def checkCategory(categoryInput):
             print("2. TV Shows")
             print("3. Countries")
             print("4. Famous Australians")
+            print("5. AFL Players")
             categoryInput = int(input("\nPlease select a category by typing the corresponding number: "))
 
             # Throws an error if the categoryInput is not in the list
@@ -49,11 +57,11 @@ def checkCategory(categoryInput):
 
 
 # Checks the condition o
-def checkEndCondition(points, word, gameStats, tries):
+def checkEndCondition(points, word, gameStats, tries, count):
     """This function checks the end condition at the end of the game. It works out whether the game was finished due
     to no more turns or the word was completed."""
     # if points equal length of word, player wins
-    if points == len(word):
+    if points == count:
         print("\nCongratulations! You won!")
 
         # Updates and displays the stats to the screen
