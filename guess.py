@@ -19,7 +19,10 @@ def countOccurrences(word, letterInput, guessedLetters, tries, wordCompletion):
 
 def displayGuessedLetters(guessedLetters):
     """This function displays the list of guessed letters."""
-    print("\nYou have guessed:", guessedLetters)
+    print("\nYou have guessed: ", end="")
+    for letter in guessedLetters:
+        print(letter + ", ", end="")
+    print()
 
 
 # Makes the guess

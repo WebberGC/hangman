@@ -4,6 +4,7 @@ import words
 
 
 def webScrape(selection):
+	words.words = []
 	categories = [None, hardWords, tvShows, countries, famousAustralians, aflPlayers]
 	categories[selection]()
 
