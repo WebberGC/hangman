@@ -1,5 +1,6 @@
 import check
 import guess
+import webScraping
 import words
 
 
@@ -22,9 +23,10 @@ def run():
 
 		# Checks the input for category selection
 		categoryInput = check.checkCategory()
+		webScraping.webScrape(categoryInput)
 
 		# Selects a word from the list of words
-		word = words.selectWord(categoryInput)
+		word = words.selectWord()
 
 		# Checks how many letters are in the word
 		count = 0

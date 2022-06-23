@@ -28,6 +28,7 @@ def checkLetterInput(userInput):
 
 
 def checkGuessedLetter(userInput, guessedLetters):
+    """This function checks to see if the guessed letter has already been guessed."""
     if userInput in guessedLetters:
         print("Sorry. You have already guessed that letter.")
         return True
@@ -36,7 +37,8 @@ def checkGuessedLetter(userInput, guessedLetters):
 def checkCategory():
     """This function checks the category to see if it is valid."""
     categoryInput = 99999
-    while categoryInput < 1 or categoryInput > len(words.words):
+    categoryAmount = 5
+    while categoryInput < 1 or categoryInput > categoryAmount:
         try:
             # prompts user with categories and asks them to pick one
             print("\n1. Hard words")
@@ -47,7 +49,7 @@ def checkCategory():
             categoryInput = int(input("\nPlease select a category by typing the corresponding number: "))
 
             # Throws an error if the categoryInput is not in the list
-            if categoryInput < 1 or categoryInput > len(words.words):
+            if categoryInput < 1 or categoryInput > categoryAmount:
                 raise InvalidInput()
 
         # Displays error message
