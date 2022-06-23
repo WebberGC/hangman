@@ -26,13 +26,13 @@ def displayGuessedLetters(guessedLetters):
 
 
 # Makes the guess
-def makeGuess(letterInput, word, points, guessedLetters, wordCompletion, tries):
+def makeGuess(letterInput, word, points, guessedLetters, wordCompletion, tries, count):
     """This function takes the input, turns it into a guess and displays the appropriate outputs."""
     letterInput = check.checkLetterInput(letterInput)
 
     # if user guesses the word, their points automatically become enough to win
     if letterInput == word:
-        points = len(word)
+        points = count
 
     # If their guessed letter is in the word print comment and add letter to guessed letters list
     elif letterInput in word:

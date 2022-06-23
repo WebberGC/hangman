@@ -42,7 +42,7 @@ def run():
 		print()
 
 		# turns letterInput into a guess and displays the appropriate outputs
-		points, tries = guess.makeGuess(letterInput, word, points, guessedLetters, wordCompletion, tries)
+		points, tries = guess.makeGuess(letterInput, word, points, guessedLetters, wordCompletion, tries, count)
 
 		# This is the main game loop. It will continue to run until the user has guessed all the letters in the word or
 		# has run out of tries.
@@ -53,7 +53,7 @@ def run():
 			letterInput = check.checkLetterInput(letterInput)
 
 			# turns letterInput into a guess and displays the appropriate outputs
-			points, tries = guess.makeGuess(letterInput, word, points, guessedLetters, wordCompletion, tries)
+			points, tries = guess.makeGuess(letterInput, word, points, guessedLetters, wordCompletion, tries, count)
 
 		# Checks the condition of the end game and updates game stats
 		gameStats = check.checkEndCondition(points, word, gameStats, tries, count)

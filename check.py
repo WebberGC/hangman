@@ -22,8 +22,8 @@ def checkInput(userInput):
 
 def checkLetterInput(userInput):
     """This function checks the letter to see if it valid."""
-    while not userInput.isalpha():
-        userInput = input("\nSorry. That was an invalid input. Please guess your first letter: ").lower()
+    while not userInput.isalpha() or len(userInput) > 1:
+        userInput = input("\nSorry. That was an invalid input. Please guess a letter: ").lower()
     return userInput
 
 
