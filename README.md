@@ -3,6 +3,7 @@
 ## :book: About the project
 This is a recreation of the well-known game, Hangman. It was developed entirely in python and used the pygame library.
 <br>
+<br>
 
 ## :hammer_and_wrench: Used Technologies 
 * Python
@@ -11,12 +12,11 @@ This is a recreation of the well-known game, Hangman. It was developed entirely 
 
 ## :computer: Recent Updates
 * 24th of June 2022 - Added GUI and web scraping
-* 14th of August 2022 - Project creation
+* 14th of August 2021 - Project creation
 <br>
 
 ## :thought_balloon: Future Updates
 * Incorporate text wrap
-* Include only english titles in TV shows
 <br>
 
 ## :wave: Let's connect!
