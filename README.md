@@ -1,7 +1,31 @@
-<h1>Hangman</h1>
+## <div align="center">Hangman</div>
 
-<h3>Description</h3>
-This is a recreation of the well-known game, Hangman. The premise behind this game is for one person to come up with a word, phrase, or sentence, and the other to guess it by coming up with letters that could be in the word or phrase within a specified number of guesses. This is a simple terminal game written in the Python language.
+## :book: About the project
+This is a recreation of the well-known game, Hangman. It was developed entirely in python and used the pygame library.
+<br>
+<br>
 
-<h3>Future Updates</h3>
-Learning web scraping would allow me to replace the hard-coded list of words, or I could store the terms in a database to make the code less "clunky."  I also intend to refactor and enhance the code using the information I've gained since completing the project.
+## :hammer_and_wrench: Used Technologies 
+* Python
+* Pygame Library
+<br>
+<br>
+
+
+## :computer: Recent Updates
+* 24th of June 2022 - Added GUI and web scraping
+* 14th of August 2022 - Project creation
+<br>
+<br>
+
+## :thought_balloon: Future Updates
+* Incorporate text wrap
+* Include only english titles in TV shows
+<br>
+<br>
+
+
+## :wave: Let's connect!
+Get in touch on [LinkedIn](https://www.linkedin.com/in/georgiawebber/).
+<br /> 
+<br />
