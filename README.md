@@ -8,6 +8,7 @@ This is a recreation of the well-known game, Hangman. It was developed entirely 
 ## :hammer_and_wrench: Used Technologies 
 * Python
 * Pygame Library
+* Beautiful Soup Library
 <br>
 
 ## :computer: Recent Updates
