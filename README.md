@@ -1,7 +1,7 @@
 ## <div align="center">Hangman</div>
 
 ## :book: About the project
-This is a recreation of the well-known game, Hangman. It was developed entirely in python and used the pygame library.
+This is a recreation of the well-known game, Hangman. It was developed entirely in python and used the pygame and Beautiful Soup libraries.
 <br>
 <br>
 
