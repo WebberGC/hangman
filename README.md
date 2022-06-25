@@ -17,6 +17,7 @@ This is a recreation of the well-known game, Hangman. It was developed entirely 
 <br>
 
 ## :thought_balloon: Future Updates
+* Game statistics
 <br>
 
 ## :wave: Let's connect!
